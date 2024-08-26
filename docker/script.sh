@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Bloquear todas las conexiones al puerto 22 por defecto
+# Bloquear todas las conexiones entrantes por defecto
 iptables -P INPUT DROP 
 
 # Hay que arrancar los servicios de esta forma porque si no se intentan arrancar antes de que la máquina esté terminada, 
@@ -8,5 +8,5 @@ iptables -P INPUT DROP
 service ssh start
 knockd -D
 
-# Ejecuto bash para que el docker no se apague al acabar el resto de procesos
+# Hago un proceso que duerma indefinidamente para que el contenedor no se apague al acabar el resto de procesos
 sleep infinity
